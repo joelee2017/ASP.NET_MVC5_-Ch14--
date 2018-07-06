@@ -7,66 +7,50 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using TechTalk.SpecFlow;
 
-namespace Katalon.Tests
+namespace Katalon.Tests.Selenium
 {
-    [TestClass()]
+    [TestClass]
     public class LoginControllerTests
     {
-        private static IWebDriver driver;
+        private IWebDriver driver;
         private StringBuilder verificationErrors;
-        //private static string baseURL;
+        //private string baseURL;
         private bool acceptNextAlert = true;
 
-        [ClassInitialize]
-        public static void InitializeClass(TestContext testContext)
+        [TestInitialize]  
+        public void SetupTest()
         {
             driver = new FirefoxDriver();
-           // baseURL = "https://http:/localhost:5339/";
+            //baseURL = "http://localhost:5339/";
+            verificationErrors = new StringBuilder();
         }
 
-        [ClassCleanup]
-        public static void CleanupClass()
+        [TestCleanup]
+        public void TeardownTest()
         {
             try
             {
-                //driver.Quit();// quit does not close the window
-                driver.Close();
-                driver.Dispose();
+                driver.Quit();
             }
             catch (Exception)
             {
                 // Ignore errors if unable to close the browser
             }
-        }
-
-        [TestInitialize]
-        public void InitializeTest()
-        {
-            verificationErrors = new StringBuilder();
-        }
-
-        [TestCleanup]
-        public void CleanupTest()
-        {
             Assert.AreEqual("", verificationErrors.ToString());
         }
 
-
-        [TestMethod()]
+        [TestMethod]
         public void 登入測試()
         {
             driver.Navigate().GoToUrl("http://localhost:5339/Login/Index");
-            driver.FindElement(By.Id("id")).Click();
             driver.FindElement(By.Id("id")).Clear();
             driver.FindElement(By.Id("id")).SendKeys("joe");
             driver.FindElement(By.Id("password")).Clear();
             driver.FindElement(By.Id("password")).SendKeys("11");
             driver.FindElement(By.XPath("//input[@value='登入']")).Click();
-            driver.FindElement(By.Id("password")).Click();
-            driver.FindElement(By.Id("password")).Clear();
-            driver.FindElement(By.Id("password")).SendKeys("123");
-            driver.FindElement(By.XPath("//input[@value='登入']")).Click();
+            Assert.AreEqual("帳號或密碼有誤", driver.FindElement(By.Id("message")).Text);
         }
 
         private bool IsElementPresent(By by)
