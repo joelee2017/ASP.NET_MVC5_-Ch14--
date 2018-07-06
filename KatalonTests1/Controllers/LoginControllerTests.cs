@@ -16,18 +16,18 @@ namespace Katalon.Tests.Selenium
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
-        //private string baseURL;
+        private string baseURL;
         private bool acceptNextAlert = true;
 
-        [TestInitialize]  
+        [TestInitialize]   //測試初始化
         public void SetupTest()
         {
             driver = new FirefoxDriver();
-            //baseURL = "http://localhost:5339/";
+            baseURL = "http://localhost:5339/";
             verificationErrors = new StringBuilder();
         }
 
-        [TestCleanup]
+        [TestCleanup] //測試清理
         public void TeardownTest()
         {
             try
@@ -44,15 +44,17 @@ namespace Katalon.Tests.Selenium
         [TestMethod]
         public void 登入測試()
         {
-            driver.Navigate().GoToUrl("http://localhost:5339/Login/Index");
+            driver.Navigate().GoToUrl(baseURL + "/Login/Index");
             driver.FindElement(By.Id("id")).Clear();
             driver.FindElement(By.Id("id")).SendKeys("joe");
             driver.FindElement(By.Id("password")).Clear();
             driver.FindElement(By.Id("password")).SendKeys("11");
             driver.FindElement(By.XPath("//input[@value='登入']")).Click();
-            Assert.AreEqual("帳號或密碼有誤", driver.FindElement(By.Id("message")).Text);
+
+            Assert.AreEqual("帳號或密碼有誤 !!", driver.FindElement(By.Id("message")).Text);
         }
 
+        //元素存在
         private bool IsElementPresent(By by)
         {
             try
@@ -66,6 +68,7 @@ namespace Katalon.Tests.Selenium
             }
         }
 
+        //警報存在
         private bool IsAlertPresent()
         {
             try
@@ -79,6 +82,7 @@ namespace Katalon.Tests.Selenium
             }
         }
 
+        //關閉警報和GetIts文本
         private string CloseAlertAndGetItsText()
         {
             try
