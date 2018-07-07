@@ -72,7 +72,25 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Blackcat.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blackcat.feature</DependentUpon>
+    </Compile>
+    <Compile Include="BlackcatSteps.cs" />
     <Compile Include="Controllers\計算運費Tests.cs" />
+    <Compile Include="Hsinchu.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hsinchu.feature</DependentUpon>
+    </Compile>
+    <Compile Include="HsinchuSteps.cs" />
+    <Compile Include="Postoffice.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Postoffice.feature</DependentUpon>
+    </Compile>
+    <Compile Include="PostofficeSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="計算運費.feature.cs">
       <AutoGen>True</AutoGen>
@@ -83,7 +101,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Blackcat.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Blackcat.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Hsinchu.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Hsinchu.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
+    <None Include="Postoffice.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Postoffice.feature.cs</LastGenOutput>
+    </None>
     <None Include="計算運費.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>計算運費.feature.cs</LastGenOutput>
