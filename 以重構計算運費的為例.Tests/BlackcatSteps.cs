@@ -7,7 +7,7 @@ using 以重構計算運費的為例.Models;
 namespace 以重構計算運費的為例.Tests
 {
     [Binding]
-    [Scope(Feature ="黑貓")]
+    [Scope(Feature = "Blackcat")]
     public class BlackcatSteps
     {
         private Blackcat target;

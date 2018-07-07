@@ -44,7 +44,7 @@ namespace 以重構計算運費的為例.Tests
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Postoffice", "In order to 供帳務拆帳使用\r\n\tAs a PM\r\n\tI want to be 根據商品資訊算出運費", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Postoffice", "\tIn order to 供帳務拆帳使用\r\n\tAs a PM\r\n\tI want to be 根據商品資訊算出運費", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

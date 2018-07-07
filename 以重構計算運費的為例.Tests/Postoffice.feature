@@ -1,5 +1,5 @@
 ﻿Feature: Postoffice
-In order to 供帳務拆帳使用
+	In order to 供帳務拆帳使用
 	As a PM
 	I want to be 根據商品資訊算出運費
 

@@ -7,7 +7,7 @@ using 以重構計算運費的為例.Models;
 namespace 以重構計算運費的為例.Tests
 {
     [Binding]
-    [Scope(Feature ="郵局")]
+    [Scope(Feature = "Postoffice")]
     public class PostofficeSteps
     {
         private Postoffice target;
